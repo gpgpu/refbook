@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="75bf1830-871d-4f11-9bdb-092428bd0182" name="Architecture" linkedPackageId="b6835c25-a513-47e5-9f2d-cae7cca6a205" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="165bc482-db85-4acb-b3c7-6ad42254b9f5">
+      <profileInstance Id="9e290a74-9da0-496d-acf0-60c40fbb7cee" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="19b091a9-11e3-4dd6-ab32-f3df11b88e60">
+      <profileInstance Id="90a86162-73c4-494e-9dc6-f2b2c374a946" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <useCase Id="462698f0-ee30-4036-b320-7dea51eceb3a" name="UseCase1" isAbstract="false" isLeaf="false">
+        <description>asdfasdf
+
+asdf
+
+asdf
+asdf
+
+asdfl;alksdf
+
+asdf</description>
+        <elementDefinition Id="910faf0b-4ea0-4363-a52d-ff7baaff3a25" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="b6835c25-a513-47e5-9f2d-cae7cca6a205" name="RefbookModeling">
+    <elementDefinition Id="a55eb34b-ea81-4f98-9792-ee7a8c74869b" />
+  </package>
+</useCaseModelRoot>

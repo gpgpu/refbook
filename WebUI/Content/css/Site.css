@@ -1,0 +1,173 @@
+body
+{
+    
+    font-family: Verdana, Tahoma, Arial, "Helvetica Neue", Helvetica, Sans-Serif;
+    color: #232323;
+    background-color:  #FAF8CC;
+}
+
+h3.subTitle
+{
+    color: #003399;
+    margin-bottom: 3px;
+}
+h2
+{
+    margin-top: 3px;
+}
+
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+
+fieldset 
+{
+    border:1px solid #ddd;
+    padding:0 1.4em 1.4em 1.4em;
+    margin:0 0 1.5em 0;
+}
+
+legend 
+{
+    font-size:1.2em;
+    font-weight: bold;
+}
+
+textarea 
+{
+    min-height: 75px;
+}
+
+.editor-label 
+{
+    margin: 1em 0 0 0;
+}
+
+.editor-field 
+{
+    margin:0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+/******************/
+/* general */
+ .portal
+ {
+         min-width: 200px;
+         min-height: 200px;
+         float:left;
+         
+         margin: 20px;
+         padding: 10px;
+         
+         text-align:center;   
+ }
+ 
+ div.book
+ {
+     
+     margin: 20px;
+    padding: 10px;
+     min-width: 200px;
+    min-height: 200px;
+    float: left;
+     text-align: center;
+    background-image: url('images/book.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+ }
+
+div.book a
+{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-weight: bold;
+    color: #660033;
+    text-decoration: none;
+}
+
+
+
+div.divTopic
+{
+  /*      border-top: 1px solid Gray;
+        border-left: 1px solid Gray; 
+        border-right: 1px solid Black;*/
+        border-bottom: 1px solid Black;
+        margin: 6px;
+        padding: 12px;
+}
+div.divArticle
+{
+       /* border-top: 1px solid red;
+        border-left: 1px solid red; */
+        border-bottom: 1px solid purple;
+      /*  border-right: 1px solid purple; */
+        padding: 12px;
+        margin: 6px;
+}
+
+ span.topicTitle a
+    {
+         font-size:1.6em;
+         text-decoration:none;
+         color: #C11B17;
+    }
+    
+span.topicTitle a:hover
+{
+     color: Red;
+     font-weight:bold;
+}
+
+span.articleTitle
+{
+    font-size: 1.2em;
+    text-decoration:none;
+   
+    
+}
+span.articleTitle a
+{
+    font-size: 1.1em;
+    text-decoration: none;
+  /*  color: #387C44; */
+  color: Navy;
+}
+span.articleTitle a:hover
+{
+    color: Purple;
+    font-weight:bold;
+}

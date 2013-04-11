@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<componentDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="SystemArchitecture">
+  <componentModelMoniker Id="5122cb63-e310-44dd-a2f5-50886dcf22e0" />
+  <nestedChildShapes>
+    <componentShape Id="361d3409-04ef-4727-bedd-d95c23a5f71f" isExpanded="false" absoluteBounds="1.125, 2, 1.725, 0.7" customColor="161, 199, 231" whiteBoxBoundsHeight="2.4666666666666659" whiteBoxBoundsWidth="4.19375" blackBoxBoundsHeight="0.7" blackBoxBoundsWidth="4.19375" whiteBoxTopEdgeShapesCount="0" whiteBoxRightEdgeShapesCount="0" whiteBoxBottomEdgeShapesCount="0" whiteBoxLeftEdgeShapesCount="0" blackBoxTopEdgeShapesCount="0" blackBoxRightEdgeShapesCount="0" blackBoxBottomEdgeShapesCount="0" blackBoxLeftEdgeShapesCount="0" whiteBoxSettingsInitialized="true" blackBoxSettingsInitialized="true">
+      <componentMoniker Id="a88927cb-f37d-4d4a-889d-c1b361508567" LastKnownName="RavenDb_Server" />
+    </componentShape>
+    <componentShape Id="f6efbc47-07ea-408a-953a-6ad80cd85f43" isExpanded="false" absoluteBounds="1.125, 4.875, 1.5479166666666671, 0.7" customColor="161, 199, 231" whiteBoxBoundsHeight="2.4666666666666659" whiteBoxBoundsWidth="4.19375" blackBoxBoundsHeight="0.7" blackBoxBoundsWidth="4.19375" whiteBoxTopEdgeShapesCount="0" whiteBoxRightEdgeShapesCount="0" whiteBoxBottomEdgeShapesCount="0" whiteBoxLeftEdgeShapesCount="0" blackBoxTopEdgeShapesCount="0" blackBoxRightEdgeShapesCount="0" blackBoxBottomEdgeShapesCount="0" blackBoxLeftEdgeShapesCount="0" whiteBoxSettingsInitialized="true" blackBoxSettingsInitialized="true">
+      <componentMoniker Id="c599380b-5318-41ab-9943-d08aa75385b1" LastKnownName="RavenDb_Local" />
+    </componentShape>
+    <componentShape Id="a7b91d8e-ffda-4a06-8a10-aaad3415cd4b" isExpanded="false" absoluteBounds="3.875, 2, 1.5, 0.7" customColor="161, 199, 231" whiteBoxBoundsHeight="0.95" whiteBoxBoundsWidth="1.5" blackBoxBoundsHeight="0.7" blackBoxBoundsWidth="1.5" whiteBoxTopEdgeShapesCount="0" whiteBoxRightEdgeShapesCount="0" whiteBoxBottomEdgeShapesCount="0" whiteBoxLeftEdgeShapesCount="0" blackBoxTopEdgeShapesCount="0" blackBoxRightEdgeShapesCount="0" blackBoxBottomEdgeShapesCount="0" blackBoxLeftEdgeShapesCount="0" whiteBoxSettingsInitialized="true" blackBoxSettingsInitialized="true">
+      <componentMoniker Id="4e01168c-da22-4c72-9928-3fb9e63555cb" LastKnownName="Web Api" />
+    </componentShape>
+    <componentShape Id="507d6b12-9d28-4e76-bb80-213fc83c31c2" isExpanded="false" absoluteBounds="7.125, 2, 1.5, 0.7" customColor="161, 199, 231" whiteBoxBoundsHeight="0.95" whiteBoxBoundsWidth="1.5" blackBoxBoundsHeight="0.7" blackBoxBoundsWidth="1.5" whiteBoxTopEdgeShapesCount="0" whiteBoxRightEdgeShapesCount="0" whiteBoxBottomEdgeShapesCount="0" whiteBoxLeftEdgeShapesCount="0" blackBoxTopEdgeShapesCount="0" blackBoxRightEdgeShapesCount="0" blackBoxBottomEdgeShapesCount="0" blackBoxLeftEdgeShapesCount="0" whiteBoxSettingsInitialized="true" blackBoxSettingsInitialized="true">
+      <componentMoniker Id="083a9c3e-acd7-46df-bab8-a7f8f999e175" LastKnownName="Mvc" />
+    </componentShape>
+    <componentShape Id="5067547a-c90e-41ed-86f9-b06257d0ac15" isExpanded="false" absoluteBounds="3.875, 4.875, 1.5, 0.7" customColor="161, 199, 231" whiteBoxBoundsHeight="0.95" whiteBoxBoundsWidth="1.5" blackBoxBoundsHeight="0.7" blackBoxBoundsWidth="1.5" whiteBoxTopEdgeShapesCount="0" whiteBoxRightEdgeShapesCount="0" whiteBoxBottomEdgeShapesCount="0" whiteBoxLeftEdgeShapesCount="0" blackBoxTopEdgeShapesCount="0" blackBoxRightEdgeShapesCount="0" blackBoxBottomEdgeShapesCount="0" blackBoxLeftEdgeShapesCount="0" whiteBoxSettingsInitialized="true" blackBoxSettingsInitialized="true">
+      <componentMoniker Id="0f526e7e-07cd-4478-b9fa-0db9b33cc63e" LastKnownName="Mvc_Local" />
+    </componentShape>
+  </nestedChildShapes>
+</componentDiagram>

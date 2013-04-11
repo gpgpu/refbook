@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="af145959-5a44-4822-a149-a2204b4634db" name="UMLUseCaseDiagram1" linkedPackageId="b803205b-d8c8-4dbc-b6db-8b8e612f1d15" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <ownedCommentsInternal>
+    <comment Id="b7b16d26-afb2-44bd-8c32-8245efafe2b9">
+      <elementDefinition Id="bea94dbd-2d94-4c58-9084-7fe7a2261efe" />
+      <body>Drag to sort.
+A "save order" button appears
+
+When "save", get the ordered Id/type list from the contentItems collection.
+
+Submit to server to save.</body>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="39221361-9f99-419e-9e9a-9c3a9b553fe0">
+      <profileInstance Id="17b1477f-0698-41f4-aba6-8eacfe1c0456" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="1198540b-3765-4ea3-8b22-bb74d3af8886">
+      <profileInstance Id="282179d8-6918-481c-abf4-665be43901a0" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <artifact Id="f448f974-b61a-4520-8dce-4082882e3a5c" name="Artifact1" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ada82135-29de-41df-bd95-416d65ce4eb8" />
+      </artifact>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="b803205b-d8c8-4dbc-b6db-8b8e612f1d15" name="RefbookModeling">
+    <elementDefinition Id="a55eb34b-ea81-4f98-9792-ee7a8c74869b" />
+  </package>
+</useCaseModelRoot>

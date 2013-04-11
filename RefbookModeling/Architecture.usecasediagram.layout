@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Architecture">
+  <useCaseModelRootMoniker Id="75bf1830-871d-4f11-9bdb-092428bd0182" />
+  <nestedChildShapes>
+    <useCaseShape Id="adebdbfe-f55e-464e-8f76-e441444a350a" absoluteBounds="6.625, 3.25, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="462698f0-ee30-4036-b320-7dea51eceb3a" LastKnownName="UseCase1" />
+      <relativeChildShapes />
+    </useCaseShape>
+  </nestedChildShapes>
+</useCaseDiagram>

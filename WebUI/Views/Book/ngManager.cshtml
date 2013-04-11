@@ -1,0 +1,77 @@
+﻿@model Domain.Portals.Portal
+@{
+    ViewBag.Title = "List";
+}
+@section header{
+    <style type="text/css">
+        .menuItem
+        {
+           
+            width: 20px;
+            height: 20px;
+        }
+        .clearBoth
+        {
+            clear: both;
+        }
+    </style>
+    <script src="@Url.Content("~/Scripts/lib/angular.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/app/manager.js")"></script>
+}
+<div ng-app="refBookApp">
+<div id="tocContainer" ng-controller="manager">
+    <div id="titleBar">{{portal}}</div>
+    <div id="menuBar">
+           <img src="@Url.Content("~/Content/images/topic.png")" id="addNewTopic"   width="30" height="30" style="vertical-align: middle;" />
+    <img src="@Url.Content("~/Content/images/article.png")" id="addNewArticle"   width="30" height="30" style="vertical-align: middle;" />
+    
+    <span id="searchBoxContainer">
+    <input type="text" id="tbxSearch" placeholder="search for title, keywords, tags, etc" />
+    <span id="searchButton">
+        <img src="@Url.Content("~/Content/images/searchIcon.png")" width="20" height="20" /></span>
+</span>
+    <div style="clear: both;"></div>
+    </div>
+    <div id="leftPanel">
+        <div style="margin: 3px 0px 3px 12px; padding: 5px 0px 5px 0px;" ng-repeat="book in books"  droppable-book="book">
+            <div class="bookHandle" ng-click="book.toggleExpansion()">{{book.handleIndicator()}}</div>
+            <div class="book">{{book.title}}</div>
+            <div class="clearFix"></div>
+        
+            <div class="topic" ng-show="book.expanded" ng-repeat="topic in book.topics" ng-include="'topicTree'" droppable-topic="topic">
+                
+            </div>
+        </div>
+        
+    </div>
+    <div id="rightPanel" ng-right-items>
+        <div ng-class="{topicRow: r.isTopic, articleRow: !(r.isTopic)}" ng-repeat="r in rightItems">
+            <span ng-click="rightSelect(r)">{{r.title}}</span>
+
+        </div>
+
+    </div>
+    <div class="clearBoth"></div>
+    <div id="commandBar" ng-show="itemSorted">
+        <input type='button' value='Save Order' ng-click="saveOrder()" /><input type='button' value='Cancel' ng-click="cancelSort()" />
+    </div>
+    
+<script type="text/ng-template" id="topicTree">
+    <div class="topicHandle" ng-click="topic.toggleExpansion()">{{topic.handleIndicator()}}</div>
+     <div ng-click="select(topic)" ng-class="{selectedTopic: topic.isSelected, topicText: !(topic.isSelected)}" >{{topic.title}}</div>
+     <div class="clearFix"></div>
+     
+     <div class="topic" ng-show="$parent.topic.expanded" ng-repeat="topic in topic.topics"  ng-include="'topicTree'" droppable-topic="topic"></div>
+     
+</script> 
+</div>
+  
+</div>
+
+<script>
+$(function(){
+    
+});
+</script>
+
+

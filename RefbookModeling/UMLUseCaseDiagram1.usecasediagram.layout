@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="UMLUseCaseDiagram1">
+  <useCaseModelRootMoniker Id="af145959-5a44-4822-a149-a2204b4634db" />
+  <nestedChildShapes>
+    <artifactShape Id="c2d6fea1-ca0d-44fe-88c9-29bdb1614c75" absoluteBounds="5.875, 1.5, 1.5, 0.5" customColor="161, 199, 231">
+      <artifactMoniker Id="f448f974-b61a-4520-8dce-4082882e3a5c" LastKnownName="Artifact1" />
+    </artifactShape>
+    <commentShape Id="40104f6d-e7b0-456c-965f-db2ae67337e1" absoluteBounds="2.375, 2.125, 2.875, 2.625" customColor="251, 247, 200">
+      <commentMoniker Id="b7b16d26-afb2-44bd-8c32-8245efafe2b9" />
+      <relativeChildShapes />
+    </commentShape>
+  </nestedChildShapes>
+</useCaseDiagram>

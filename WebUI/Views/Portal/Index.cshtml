@@ -1,0 +1,51 @@
+﻿@model List<Domain.Portals.Portal>
+@{
+    ViewBag.Title = "Portals";
+}
+@section header{
+    <style type="text/css">
+        #portalContainer a:link
+        {
+            text-decoration:none;
+        }
+        #portalContainer a:hover
+        {
+            background: #e08484;
+            border: 1px solid #f00;
+            transform: perspective(300px) scaleZ(1.5);
+            font-size: 2em;
+            font-weight: bold;
+
+        }
+    </style>
+}
+
+<h2>Index</h2>
+<div id="portalContainer">
+@foreach (var portal in Model)
+{
+    <div id="@portal.Id">@Html.ActionLink(portal.Title, "Manager", "Book", new{parent="portal", parentId=portal.Id}, null)</div>
+}
+</div>
+@*<script type="text/javascript">
+    $(function () {
+        $.getJSON("http://local.refbookservice.org/api/portal/Get?callback=?", null, function (data) {
+            $.each(data, function (i, item) {
+                viewModel.portals.push(new portal(item.PortalId, item.Title));
+            });
+           
+
+        });
+    });
+
+    var portal = function (portalId, title) {
+        this.portalId = portalId;
+        this.title = ko.observable(title);
+    };
+
+    var viewModel = {
+        portals : ko.observableArray()
+    };
+    ko.applyBindings(viewModel);
+
+</script>*@

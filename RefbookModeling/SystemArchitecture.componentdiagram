@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<componentModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="5122cb63-e310-44dd-a2f5-50886dcf22e0" name="SystemArchitecture" linkedPackageId="957ed234-3f83-4868-92e0-f8781168fc8f" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="93dbc458-ca6d-433e-8b2a-b6b3297c7da2">
+      <profileInstance Id="336d8e13-f8e8-4d8f-94c7-34b382c1f1c9" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="e0739350-33d2-47e6-9286-ea174f4cd535">
+      <profileInstance Id="5c802fca-e2d2-4bef-9418-ad2894a37a26" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <componentModelHasComponents>
+      <component Id="a88927cb-f37d-4d4a-889d-c1b361508567" name="RavenDb_Server" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <description>asdfasdfaasdf</description>
+        <elementDefinition Id="ca28b692-4acf-4e5c-8647-ee238c6c95a9" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="c599380b-5318-41ab-9943-d08aa75385b1" name="RavenDb_Local" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <description>asdfasdfaasdf</description>
+        <elementDefinition Id="4dbd7ac7-217b-4541-b360-f6467ae61f91" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="4e01168c-da22-4c72-9928-3fb9e63555cb" name="Web Api" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="88faa075-ff5e-4c20-b9c9-92b501616d88" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="083a9c3e-acd7-46df-bab8-a7f8f999e175" name="Mvc" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="3364c6a5-a2a7-45d5-8178-8d16fec3a6bf" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="0f526e7e-07cd-4478-b9fa-0db9b33cc63e" name="Mvc_Local" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="32c54c4b-468a-421e-ae01-d89bbc0e891d" />
+      </component>
+    </componentModelHasComponents>
+  </packagedElements>
+  <package Id="957ed234-3f83-4868-92e0-f8781168fc8f" name="RefbookModeling">
+    <elementDefinition Id="a55eb34b-ea81-4f98-9792-ee7a8c74869b" />
+  </package>
+</componentModel>

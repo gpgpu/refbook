@@ -1,0 +1,138 @@
+body
+{
+    background-color: #274A80;
+}
+div.lightBg
+{
+    background-color:#BCE954;
+    padding: 10px, 3px, 3px, 3px;
+}
+
+div.lightBg > h2
+{
+    padding-bottom: 6px;
+}
+
+#editorContainer
+        {
+            margin: 12px;
+        }
+
+#contentArea
+{
+    line-height: 150%;
+    border: 2px ridge #ececec;
+    padding: 6px;
+    background-color: #F8F8F8;
+    min-height: 200px;
+    max-height: 750px;
+    overflow: auto;
+    font-size: 1em;
+    font-family: Verdana, Tahoma, Arial, "Helvetica Neue" , Helvetica, Sans-Serif;
+}
+
+#contentArea h1
+{
+    font-size: 2em;
+    font-weight:bolder;
+    color: Red;
+    display: block;
+}
+#contentArea h2
+{
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #800040;
+    display: block;
+}
+
+#contentArea p, #contentArea div
+{
+    padding: 1px 0px 2px 0px;    
+}
+
+#contentArea pre {
+	/*width: 90%;
+	background-color:  #CFECEC;
+	margin-left:auto;
+	margin-right:auto;
+	padding: 3px;
+
+	line-height:100%;
+	word-spacing: normal;
+	border: groove #993399 1px;
+	*/
+    margin-left: 12px;
+    margin-right: 12px;
+    border-left: solid 2px green;
+    padding: 6px;
+    line-height: 120%;
+	font-family:"Courier New", Courier, monospace;
+	font-size:1em;
+    background-color: #f8f3c5;
+    border-collapse: collapse;
+
+	
+}
+
+#contentArea pre > p
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+#contentArea .definition {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-style: italic;
+	color: #FF0099;
+}
+
+#contentArea table{
+margin:0 auto;
+padding:3px;
+border: solid 1px #666666;
+width: 95%;
+}
+
+#contentArea .term {
+	font-weight: bold;
+	color: #990000;
+	background-color: #CCCC33;
+	display: inline;
+	border: 1px dotted #CC9900;
+}
+#contentArea .note {
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: italic;
+	color: #003300;
+}
+#contentArea .attention {
+	
+	color: #FF0000;
+}
+
+#contentArea .bold{
+font-weight:bold;
+}
+
+#contentArea table
+{
+    border: 1px solid black;
+    padding: 3px;
+    
+    margin-left:auto;
+	margin-right:auto;
+	
+	min-width: 100px;
+}
+
+#contentArea table td, #contentArea table th
+{
+    border: 1px dotted green;
+    padding: 2px;
+}
+
+#contentArea table th
+{
+    text-align: left;
+}

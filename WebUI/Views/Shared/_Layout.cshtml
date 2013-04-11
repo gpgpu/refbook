@@ -1,0 +1,32 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/SyntaxHighlighter/shCore.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/SyntaxHighlighter/shCoreDefault.css")" />
+    <link type="text/css" href="@Url.Content("~/Content/css/main.css")" rel="stylesheet" type="text/css" />
+    <link type="text/css" href="@Url.Content("~/Content/themes/base/jquery.ui.all.css")" rel="stylesheet" />
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.8.1.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.9.2.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout-2.1.0.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout.validation.js")"></script>
+    
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout.mapping-latest.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout-sortable.js")"></script>
+  @*  <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shCore.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushJScript.js")"></script>
+  *@  
+     @RenderSection("header", false)
+    <title>RefBook</title>
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

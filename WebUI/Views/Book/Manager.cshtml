@@ -1,0 +1,459 @@
+﻿@model Domain.Portals.Portal
+@{
+    ViewBag.Title = "List";
+}
+@section header{
+    <style type="text/css">
+        .menuItem
+        {
+           
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+}
+
+
+
+
+
+<div id="tocContainer">
+    <div id="titleBar"><span data-bind="text: title"></span></div>
+<div id="menuBar">
+    
+    <img src="@Url.Content("~/Content/images/topic.png")" id="addNewTopic"   width="30" height="30" style="vertical-align: middle;" />
+    <img src="@Url.Content("~/Content/images/article.png")" id="addNewArticle"   width="30" height="30" style="vertical-align: middle;" />
+    
+    <span id="searchBoxContainer">
+    <input type="text" id="tbxSearch" placeholder="search for title, keywords, tags, etc" />
+    <span id="searchButton">
+        <img src="@Url.Content("~/Content/images/searchIcon.png")" width="20" height="20" /></span>
+</span>
+    <div style="clear: both;"></div>
+</div>
+<div id="leftPanel" data-bind="foreach: books">
+    <div style="margin: 3px 0px 3px 12px; padding: 5px 0px 5px 0px;">
+        <span data-bind="if: hasChildren, text: expandHandle, click: toggleExpansion" class="bookHandle"></span>
+        <span class="book" data-bind="text: bookName, click: select, css: {book: !isSelected(), selectedBook: isSelected}"></span>
+        <div style="margin-left: 12px;" data-bind="template: {name: 'tmplTopics', foreach: topics}, visible: expanded">
+          
+        </div>
+    </div>
+</div>
+    <div id="rightPanel" data-bind="foreach: contentItems">
+        <div data-bind="css:{articleRow: !(isTopic()), topicRow: isTopic}"><span data-bind="text: name"></span></div>
+    </div>
+    <div style="clear: both;"></div>
+<div id="commandBar"></div>
+</div>
+<div style="clear: both;"></div>
+<script id="tmplTopics" type="text/html">
+    <div class="topic">
+        <div data-bind="if: hasChildren, click: toggleExpansion, text: expandHandle" class="topicHandle"></div>
+        <div data-bind="text: name, click: select, css: {selectedTopic: isSelected, topicText: !isSelected()}"></div>
+        <div class="clearFix"></div>
+        <div data-bind="template: { name: 'tmplTopics', foreach: topics }, visible: expanded"></div>
+    </div>
+</script>
+
+
+<script type="text/javascript">
+    //namespaces
+    var util = {};
+
+    util.expandAllParents = function(item){
+        if (item.parent) {
+            item.parent.expanded(true);
+            util.expandAllParents(item.parent);
+        }
+    }
+   
+    var portal = function () {
+        var self = this;
+        this.title = ko.observable();
+        this.books = ko.observableArray();
+
+        this.contentItems = ko.observableArray();
+        this.selectedItem;
+
+       
+    };
+
+    var contentItem = function () {
+        var self = this;
+        self.originalItem;
+        self.id = ko.observable();
+        self.name = ko.observable();
+        self.displayOrder = ko.observable();
+        self.isTopic = ko.observable(false);
+
+    };
+    var book = function () {
+        var self = this;
+        this.bookId = ko.observable();
+        this.bookName = ko.observable();
+        this.topics = ko.observableArray();
+        this.hasChildren = ko.computed(function () {
+            return this.topics && this.topics().length > 0;
+        }, this);
+        this.expanded = ko.observable(false);
+        this.expandHandle = ko.computed(function () {
+            if (!self.hasChildren())
+                return '';
+            if (self.expanded())
+                return '-';
+            return '+';
+        });
+        this.toggleExpansion = function () {
+            this.expanded(!this.expanded());
+        };
+
+        self.isSelected = ko.observable(false);
+
+        self.select = function () {
+            if (!self.isSelected()) {
+                //ko.utils.arrayForEach(viewModel.books(), function (item) { item.isSelected(false); });
+                
+                if (viewModel.selectedItem) {
+                    viewModel.selectedItem.isSelected(false);
+                }
+                self.isSelected(true);
+                viewModel.selectedItem = self;
+                viewModel.contentItems([]);
+
+                for (var i = 0; i < self.topics().length; i++) {
+                    var theTopic = self.topics()[i];
+                    var item = new contentItem();
+                    item.originalItem = theTopic;
+                    item.id(theTopic.topicId());
+                    item.name(theTopic.name());
+                    item.displayOrder(theTopic.displayOrder());
+                    item.isTopic(true);
+
+                    viewModel.contentItems.push(item);
+                    viewModel.contentItems.sort(function (a, b) {
+                        return a.displayOrder() > b.displayOrder();
+                    });
+                }
+            }
+        };
+        
+    };
+    var topic = function () {
+        var self = this;
+        self.parent;
+        self.topicId = ko.observable();
+        self.bookId = ko.observable();
+        self.name = ko.observable();
+        self.displayOrder = ko.observable();
+        
+        this.topics = ko.observableArray();
+        self.articles = ko.observableArray();
+
+        this.hasChildren = ko.computed(function () {
+            return this.topics() && this.topics().length > 0;
+        }, this);
+        this.expanded = ko.observable(false);
+        this.expandHandle = ko.computed(function () {
+            if (!self.hasChildren())
+                return '';
+            if (self.expanded())
+                return '-';
+            return '+';
+        });
+        this.toggleExpansion = function () {
+            this.expanded(!this.expanded());
+        };
+
+        self.isSelected = ko.observable(false);
+        self.select = function () {
+            if (viewModel.selectedItem) {
+                viewModel.selectedItem.isSelected(false);
+            }
+            self.isSelected(true);
+            viewModel.selectedItem = self;
+
+            viewModel.contentItems([]);
+            var tempList = ko.observableArray();
+
+            for (var i = 0; i < self.articles().length; i++){
+                var theArticle = self.articles()[i];
+                var item = new contentItem();
+                item.id(theArticle.articleId());
+                item.name(theArticle.title());
+                item.displayOrder(theArticle.displayOrder());
+                item.isTopic(false);
+
+                viewModel.contentItems.push(item);
+            }
+
+            for (var i = 0; i < self.topics().length; i++) {
+                var theTopic = self.topics()[i];
+                var item = new contentItem();
+                item.originalItem = theTopic;
+                item.id(theTopic.topicId());
+                item.name(theTopic.name());
+                item.displayOrder(theTopic.displayOrder());
+                item.isTopic(true);
+
+                viewModel.contentItems.push(item);
+            }
+           viewModel.contentItems.sort(function (a, b) {
+                return a.displayOrder() > b.displayOrder()? 1 : -1;
+           });
+
+    //       viewModel.contentItems = tempList;
+        };
+    };
+
+    var article = function () {
+        var self = this;
+        this.parent;
+        self.articleId = ko.observable();
+        self.title = ko.observable();
+        self.displayOrder = ko.observable();
+
+    };
+
+    var viewModel = new portal();
+    $(function () {
+        
+        $.getJSON("http://local.refbookservice.org/api/book/GetTOB/1?callback=?", null, function (data) {
+            viewModel.title(data.Title);
+            for (var i = 0; i < data.Books.length; i++){
+                var serverBook = data.Books[i];
+                var clientBook = new book();
+                clientBook.bookId(serverBook.Id);
+                clientBook.bookName(serverBook.Title);
+                viewModel.books.push(clientBook);
+                if (serverBook.Topics && serverBook.Topics.length > 0) {
+                    for (var j = 0; j < serverBook.Topics.length; j++) {
+                        var serverTopic = serverBook.Topics[j];
+                        var clientTopic = parseTopic(serverTopic);
+                        clientTopic.parent = clientBook;
+
+                        clientBook.topics.push(clientTopic);
+                    }
+                }
+            }
+            ko.applyBindings(viewModel);
+        });
+
+        $(".articleRow").live("dblclick", function () {
+            var selectedId = ko.dataFor(this).id().toString();
+            var url = '@Url.Action("EditContent", "Article", new{id=-1})';
+            url = url.replace('-1', selectedId);
+
+            //     window.open(url, '_blank', "height=900,width=1100, resizable=1");
+            window.open(url, '_blank');
+        });
+
+        $(".topicRow").live("dblclick", function () {
+            var selectedItem = ko.dataFor(this);
+            selectedItem.originalItem.select();
+            util.expandAllParents(selectedItem.originalItem);
+        });
+
+        $("#addNewTopic").click(function () {
+            if (!viewModel.selectedItem)
+                return;
+            $("#rightPanel").prepend("<div id='divAddNewContainer'><input type='text' id='tbxNewTopic' placeholder='name here' /><input type='button' id='btnSaveNewTopic' value='ok' /><input type='button' id='btnCancelNewTopic' value='cancel' /></div>");
+            $("#tbxNewTopic").focus();
+        });
+
+        $("#btnSaveNewTopic").live("click", function () {
+            // parent type: book or topic?
+            var isTopic = ('topicId' in viewModel.selectedItem);
+            // save on server
+            var para = {};
+            para.Title = $("#tbxNewTopic").val();
+            para.BookId = viewModel.selectedItem.bookId();
+            if (isTopic) {
+                para.ParentTopicId = viewModel.selectedItem.topicId();
+            }
+            
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("Create", "Topic")",
+                data: JSON.stringify(para),
+                contentType: "application/json",
+                success: function (data) {
+                    
+                    // push to viewModel.items
+
+                    var newTopic = new topic();
+                    newTopic.topicId(data);
+                    newTopic.bookId(para.BookId);
+                    newTopic.name(para.Title);
+                    newTopic.parent = viewModel.selectedItem;
+                   
+                    viewModel.selectedItem.topics.push(newTopic);
+                    // push to currentItems
+                    var newItem = new contentItem();
+                    newItem.id(data);
+                    newItem.name(para.Title);
+                    newItem.isTopic(true);
+                    newItem.originalItem = newTopic;
+                    viewModel.contentItems.push(newItem);
+
+                    $("#divAddNewContainer").remove();
+                },
+                error: function () {
+                    alert('error');
+                }
+            });
+        });
+
+        $("#btnCancelNewTopic").live("click", function () {
+            
+            $("#divAddNewContainer").remove();
+        });
+
+        $("#addNewArticle").click(function () {
+            if (!viewModel.selectedItem)
+                return;
+            if ('topicId' in viewModel.selectedItem) {
+                $("#rightPanel").append("<div id='divAddNewContainer'><input type='text' id='tbxNewArticle' placeholder='name here' /><input type='button' id='btnSaveNewArticle' value='ok' /><input type='button' id='btnCancelNewArticle' value='cancel' /></div>");
+                $("#tbxNewArticle").focus();
+            }
+            else {
+                alert(viewModel.selectedItem.constructor);
+
+            }
+          
+        });
+      
+        $("#btnSaveNewArticle").live("click", function () {
+            // save on server
+            var lastDisplayOrder = 0,
+                contentItemsLength = viewModel.contentItems().length,
+                newDisplayOrder = 0;
+
+            if (viewModel && contentItemsLength) {
+                var lastDisplayOrder = +(viewModel.contentItems()[contentItemsLength - 1].displayOrder());
+            }
+            newDisplayOrder = lastDisplayOrder + 1;
+
+            var para = {};
+            para.TopicId = viewModel.selectedItem.topicId();
+            para.Title = $("#tbxNewArticle").val();
+            para.DisplayOrder = newDisplayOrder;
+
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("AddArticle", "Article")",
+                data: JSON.stringify(para),
+                contentType: "application/json",
+                success: function (data) {
+                    
+                    // push to viewModel.items
+                    var newArticle = new article();
+                    newArticle.articleId(data);
+                    newArticle.title(para.Title);
+                   
+                    viewModel.selectedItem.articles.push(newArticle);
+                    // push to currentItems
+                    var newItem = new contentItem();
+                    newItem.id(data);
+                    newItem.name(para.Title);
+                    newItem.isTopic(false);
+                    newItem.displayOrder(newDisplayOrder);
+                    viewModel.contentItems.push(newItem);
+
+                    $("#divAddNewContainer").remove();
+                },
+                error: function () {
+                    alert('error');
+                }
+
+            });
+
+           
+        });
+
+        $("#btnCancelNewArticle").live("click", function () {
+
+            $("#divAddNewContainer").remove();
+        });
+        
+    });
+
+    function parseTopic(serverTopic) {
+        var clientTopic = new topic();
+        clientTopic.topicId(serverTopic.TopicId);
+        clientTopic.bookId(serverTopic.BookId);
+        clientTopic.name(serverTopic.Title);
+        clientTopic.displayOrder(serverTopic.DisplayOrder);
+
+        for (var articleIndex = 0; articleIndex < serverTopic.Articles.length; articleIndex++) {
+            var serverArticle = serverTopic.Articles[articleIndex];
+            var clientArticle = new article();
+            clientArticle.articleId(serverArticle.ArticleId);
+            clientArticle.title(serverArticle.Title);
+            clientArticle.displayOrder(serverArticle.DisplayOrder);
+            clientArticle.parent = clientTopic;
+            clientTopic.articles.push(clientArticle);
+        }
+
+        if (serverTopic.Topics) {
+            for (var k = 0; k < serverTopic.Topics.length; k++) {
+                var childTopic = serverTopic.Topics[k];
+                var clientChildTopic = parseTopic(childTopic);
+                clientChildTopic.parent = clientTopic;
+                clientTopic.topics.push(clientChildTopic);
+            }
+        }
+
+        return clientTopic;
+    }
+
+  
+
+    
+    $("#searchButton").click(function () { alert("search") });
+
+
+    $("#btnSaveOrder").live("click", function () {
+        var para = JSON.stringify(viewModel.contentItems().map(function (x) { return { "id": x.id(), "isTopic": x.isTopic() }; }));
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("SaveItemsOrder", "Book")",
+                data: para,
+                contentType: "application/json",
+                success: function (data) {
+                    alert(data);
+                    $("#commandBar").hide();
+                    $("#commandBar").html('');
+                },
+                error: function () {
+                    alert('error');
+                }
+
+         });
+
+        // alert(ko.dataFor(ui.item[0]).name());
+      
+    });
+    $("#btnCancelOrder").live("click", function () {
+        $("#commandBar").hide();
+        $("#commandBar").html('');
+    });
+    $("#rightPanel").sortable({
+        stop: function (event, ui) {
+            
+            var position = ui.item.index();
+            var dataItem = ko.dataFor(ui.item[0]);
+            viewModel.contentItems.remove(dataItem);
+            viewModel.contentItems.splice(position, 0, dataItem);
+            ui.item.remove();
+
+            $("#commandBar").html("<input type='button' id='btnSaveOrder' value='Save Order' /><input type='button' id='btnCancelOrder' value='Cancel' />");
+            $("#commandBar").show();
+
+
+        },
+        delay: 500
+    });
+    
+    
+</script>
